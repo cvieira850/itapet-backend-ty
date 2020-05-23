@@ -1,11 +1,12 @@
 {
-  "name": "backend-itapet",
+  "name": "itapet-typescript",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
     "build": "tsc",
-    "dev:server": "ts-node-dev --transpileOnly --ignore-watch node_modules src/server.ts"
+    "dev:server": "ts-node-dev --inspect --transpileOnly --ignore-watch node_modules src/server.ts",
+    "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -13,17 +14,18 @@
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
     "jsonwebtoken": "^8.5.1",
-    "pg": "^8.2.1",
+    "multer": "^1.4.2",
+    "pg": "^8.0.2",
     "reflect-metadata": "^0.1.13",
-    "typeorm": "^0.2.25",
-    "uuidv4": "^6.0.9"
+    "typeorm": "^0.2.24",
+    "uuidv4": "^6.0.7"
   },
   "devDependencies": {
+    "@types/multer": "^1.4.3",
     "@types/bcryptjs": "^2.4.2",
     "@types/cors": "^2.8.6",
     "@types/express": "^4.17.6",
     "@types/jsonwebtoken": "^8.3.9",
-    "@types/multer": "^1.4.3",
     "@typescript-eslint/eslint-plugin": "^2.28.0",
     "@typescript-eslint/parser": "^2.28.0",
     "eslint": "^6.8.0",
