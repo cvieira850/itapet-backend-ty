@@ -4,7 +4,10 @@ import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
+  OneToMany,
 } from 'typeorm';
+
+import Post from './Post';
 
 @Entity('categories')
 class Category {
@@ -19,5 +22,8 @@ class Category {
 
   @UpdateDateColumn()
   updated_at: Date;
+
+  @OneToMany(() => Post, post_category => post_category.category)
+  post_category: Post;
 }
 export default Category;

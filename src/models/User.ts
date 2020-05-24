@@ -4,7 +4,10 @@ import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
+  OneToMany,
 } from 'typeorm';
+
+import Post from './Post';
 
 @Entity('users')
 class User {
@@ -28,6 +31,9 @@ class User {
 
   @UpdateDateColumn()
   updated_at: Date;
+
+  @OneToMany(() => Post, post_owner => post_owner.category)
+  post_owner: Post;
 }
 
 export default User;
