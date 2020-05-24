@@ -1,6 +1,5 @@
-import { getRepository, Like, createQueryBuilder } from 'typeorm';
+import { getRepository, Like } from 'typeorm';
 
-import { response } from 'express';
 import Post from '../models/Post';
 import AppError from '../errors/AppError';
 
@@ -29,8 +28,6 @@ class CreateUserService {
       const where = q ? { title: Like(`%${q}%`) } : {};
 
       const postsCount = await postsRepository.count({ where });
-
-      console.log(postsCount);
 
       const lastPage = page * limit >= postsCount;
 
